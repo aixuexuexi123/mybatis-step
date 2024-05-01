@@ -1,5 +1,6 @@
 package mybatisStep.session.defaults;
 
+import mybatisStep.binding.MapperRegistry;
 import mybatisStep.session.SqlSession;
 import mybatisStep.session.SqlSessionFactory;
 
@@ -9,8 +10,14 @@ import mybatisStep.session.SqlSessionFactory;
  * @Created by lenovo
  */
 public class DefaultSqlSessionFactory implements SqlSessionFactory {
+    private final MapperRegistry mapperRegistry;
+
+    public DefaultSqlSessionFactory(MapperRegistry mapperRegistry) {
+        this.mapperRegistry = mapperRegistry;
+    }
+
     @Override
     public SqlSession openSession() {
-        return null;
+        return new DefaultSqlSession(mapperRegistry);
     }
 }
