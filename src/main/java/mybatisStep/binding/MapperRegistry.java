@@ -1,6 +1,7 @@
 package mybatisStep.binding;
 
 import cn.hutool.core.lang.ClassScanner;
+import mybatisStep.session.Configuration;
 import mybatisStep.session.SqlSession;
 
 import java.util.HashMap;
@@ -12,8 +13,12 @@ import java.util.Set;
  * @Created by lenovo
  */
 public class MapperRegistry {
+    private Configuration config;
 
 
+    public MapperRegistry(Configuration config) {
+        this.config = config;
+    }
     /**
      * 将已添加的映射器代理工厂加入到 HashMap
      */
